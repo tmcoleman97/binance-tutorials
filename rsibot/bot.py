@@ -39,12 +39,13 @@ def on_message(ws, message):
     
     print('received message')
     json_message = json.loads(message)
-    pprint.pprint(json_message)
 
     candle = json_message['k']
-
     is_candle_closed = candle['x']
     close = candle['c']
+
+    pprint.pprint(close)
+    pprint.pprint(is_candle_closed)
 
     if is_candle_closed:
         print("candle closed at {}".format(close))
